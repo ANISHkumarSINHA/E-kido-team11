@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>YouTube Video Fullscreen Embed</title>
+</head>
+<body>
+  <h1>Click the video frame to play in fullscreen</h1>
+
+  <!-- YouTube Video Embed Code -->
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1" frameborder="0" allowfullscreen></iframe>
+
+  <!-- JavaScript to handle fullscreen on click -->
+  <script>
+    // Get the video frame element
+    const videoFrame = document.querySelector('iframe');
+
+    // Add click event listener
+    videoFrame.addEventListener('click', () => {
+      // Request fullscreen
+      if (videoFrame.requestFullscreen) {
+        videoFrame.requestFullscreen();
+      } else if (videoFrame.mozRequestFullScreen) { // Firefox
+        videoFrame.mozRequestFullScreen();
+      } else if (videoFrame.webkitRequestFullscreen) { // Chrome, Safari and Opera
+        videoFrame.webkitRequestFullscreen();
+      } else if (videoFrame.msRequestFullscreen) { // IE/Edge
+        videoFrame.msRequestFullscreen();
+      }
+    });
+  </script>
+</body>
+</html>

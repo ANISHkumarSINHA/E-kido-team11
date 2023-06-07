@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Tortoise and the Hare</title>
+  <link rel="stylesheet" type="text/css" href="2.css">
+</head>
+<body>
+  <h1>The Tortoise and the Hare</h1>
+  
+  <div class="container">
+    <div class="frame">
+      <img src="tortoise.jpg" alt="Tortoise">
+      <p>Question 1: Who is the slow and steady character in this story?</p>
+      <div class="options">
+        <label>
+          <input type="radio" name="q1" value="tortoise">
+          Tortoise
+        </label>
+        <label>
+          <input type="radio" name="q1" value="hare">
+          Hare
+        </label>
+        <label>
+          <input type="radio" name="q1" value="neither">
+          Neither
+        </label>
+        <label>
+          <input type="radio" name="q1" value="both">
+          Both
+        </label>
+      </div>
+    </div>
+    
+    <!-- Repeat the above structure for the remaining questions -->
+    
+    <div class="frame">
+      <img src="finish.jpg" alt="Finish Line">
+      <p>Question 5: Who wins the race?</p>
+      <div class="options">
+        <label>
+          <input type="radio" name="q5" value="tortoise">
+          Tortoise
+        </label>
+        <label>
+          <input type="radio" name="q5" value="hare">
+          Hare
+        </label>
+        <label>
+          <input type="radio" name="q5" value="neither">
+          Neither
+        </label>
+        <label>
+          <input type="radio" name="q5" value="both">
+          Both
+        </label>
+      </div>
+    </div>
+    
+    <button onclick="calculateScore()">Submit</button>
+    
+    <div id="score"></div>
+    <div id="answers"></div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

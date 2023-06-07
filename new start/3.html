@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-kido</title>
+    <link rel="stylesheet" href="image.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #wrapper {
+            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .container {
+            height: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .container h1 {
+            margin: 20px 100px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 3rem;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .card {
+            width: 32%;
+            position: relative;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            box-shadow: 0 0 20px #333;
+            object-fit: cover;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+            transition: 0.5s;
+            filter: drop-shadow(0 0 10px #333);
+        }
+
+        .card:hover img {
+            filter: grayscale(0%);
+        }
+
+        .card figcaption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 25px;
+            width: 100%;
+            height: 20%;
+            font-size: 16px;
+            font-weight: 500;
+            color: #fff;
+            opacity: 0;
+            border-radius: 0 0 10px 10px;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+            transition: 0.3s;
+        }
+
+        .card:hover figcaption {
+            opacity: 1;
+            transform: scale(1.03);
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .an {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+    <script>
+        function openTestLink() {
+            // Open the link to the question and options page
+            window.open("http://127.0.0.1:5500/test.html");
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const cards = document.querySelectorAll(".card");
+
+            cards.forEach(function (card) {
+                card.addEventListener("click", function () {
+                    const videoUrl = "aa.mp4";
+                    const videoId = videoUrl.split("/").pop();
+
+                    const iframe = document.createElement("iframe");
+                    iframe.src = `aa.mp4`;
+                    iframe.width = "100%";
+                    iframe.height = "100%";
+                    iframe.setAttribute("allowfullscreen", "");
+
+                    const modal = document.createElement("div");
+                    modal.classList.add("modal");
+                    modal.appendChild(iframe);
+
+                    document.body.appendChild(modal);
+                    document.body.style.overflow = "hidden";
+
+                    modal.addEventListener("click", function () {
+                        document.body.removeChild(modal);
+                        document.body.style.overflow = "auto";
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <div class="container">
+            <h1><i><b>Stories</b></i></h1>
+
+            <div class="gallery">
+                <figure class="card"><img src="a.jpeg" alt="">
+                    <figcaption>The jungle Book</figcaption>
+                </figure>
+
+                <figure class="card"><img src="b.jpg" alt="">
+                    <figcaption>The monkey and the crocodile</figcaption>
+                </figure>
+
+                <figure class="card"><img src="c.jpg" alt="">
+                    <figcaption>The Stork and the Crab</figcaption>
+                </figure>
+
+                <figure class="card"><img src="d.jpg" alt="">
+                    <figcaption>The Loyal Mongoose</figcaption>
+                </figure>
+
+                <figure class="card"><img src="e.jpg" alt="">
+                    <figcaption>Union is strength</figcaption>
+                </figure>
+
+                <figure class="card"><img src="f.jpeg" alt="">
+                    <figcaption>Tortoise and the Hare</figcaption>
+                </figure>
+
+                <figure class="card"><img src="g.jpeg" alt="">
+                    <figcaption>The three little pigs</figcaption>
+                </figure>
+
+                <figure class="card"><img src="h.jpg" alt="">
+                    <figcaption>The Ant and the Grasshopper</figcaption>
+                </figure>
+
+                <figure class="card"><img src="i.jpeg" alt="">
+                    <figcaption>The foolish thief</figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <title class="an">Dictionary</title>
+        <script src="dictionary.js"></script>
+    </head>
+
+    <body>
+        <h1>Dictionary</h1>
+        <input type="text" id="searchInput" placeholder="Enter a word">
+        <button onclick="search()">Search</button>
+        <div id="searchResult"></div>
+    </body>
+
+    </html>
+
+</body>
+
+</html>

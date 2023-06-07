@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MCQ Frame Box</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f2f2f2;
+    }
+
+    .frame-box {
+      width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      color: blue;
+    }
+
+    .question {
+      text-align: left;
+      margin-bottom: 10px;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .option {
+      margin-bottom: 5px;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .button-group button {
+      margin: 0 5px;
+    }
+
+    .score {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    .answers {
+      margin-top: 10px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="frame-box">
+    <h1>MCQ Frame Box</h1>
+
+    <div class="question" id="question1">
+      <p>1. What animal was known for being fast in the story?</p>
+    </div>
+
+    <div class="options" id="options1">
+      <div class="option">
+        <input type="radio" id="option1a" name="q1" value="a">
+        <label for="option1a">a Tortoise</label>
+        <hr>
+      </div>
+      <div class="option">
+        <input type="radio" id="option1b" name="q1" value="b">
+        <label for="option1b">b Rabbit</label>
+        <hr>
+      </div>
+      <div class="option">
+        <input type="radio" id="option1c" name="q1" value="c">
+        <label for="option1c">c Lion</label>
+        <hr>
+      </div>
+      <div class="option">
+        <input type="radio" id="option1d" name="q1" value="d">
+        <label for="option1d">d Monkey</label>
+        <hr>
+      </div>
+    </div>
+
+    <div class="button-group" id="buttonGroup1">
+      <button onclick="nextQuestion(1)">Next</button>
+    </div>
+
+    <div class="question" id="question2" style="display: none;">
+      <p>2. Why did the Tortoise challenge the Rabbit to a race?</p>
+    </div>
+
+    <div class="options" id="options2" style="display: none;">
+      <div class="option">
+        <input type="radio" id="option2a" name="q2" value="a">
+        <label for="option2a">a To prove who is stronger</label>
+        <hr>
+      </div>
+      <div class="option">
+        <input type="radio" id="option2b" name="q2" value="b">
+        <label for="option2b">b To see who is smarter</label>
+        <hr>
+    </div>
+    <div class="option">
+      <input type="radio" id="option2c" name="q2" value="c">
+      <label for="option2c">c To determine who is faster</label>
+      <hr>
+    </div>
+    <div class="option">
+      <input type="radio" id="option2d" name="q2" value="d">
+      <label for="option2d">d To find a new friend</label>
+      <hr>
+    </div>
+  </div>
+
+  <div class="button-group" id="buttonGroup2" style="display: none;">
+    <button onclick="nextQuestion(2)">Next</button>
+  </div>
+
+  <div class="question" id="question3" style="display: none;">
+    <p>3. Who won the race in the story?</p>
+  </div>
+
+  <div class="options" id="options3" style="display: none;">
+    <div class="option">
+      <input type="radio" id="option3a" name="q3" value="a">
+      <label for="option3a">a Tortoise</label>
+      <hr>
+    </div>
+    <div class="option">
+      <input type="radio" id="option3b" name="q3" value="b">
+      <label for="option3b">b Rabbit</label>
+      <hr>
+    </div>
+    <div class="option">
+      <input type="radio" id="option3c" name="q3" value="c">
+      <label for="option3c">c Lion</label>
+      <hr>
+    </div>
+    <div class="option">
+      <input type="radio" id="option3d" name="q3" value="d">
+      <label for="option3d">d Monkey</label>
+      <hr>
+    </div>
+  </div>
+
+  <div class="button-group" id="buttonGroup3" style="display: none;">
+    <button onclick="nextQuestion(3)">Next</button>
+  </div>
+
+  <div class="question" id="question4" style="display: none;">
+    <p>4. What lesson can we learn from the story?</p>
+  </div>
+
+  <div class="options" id="options4" style="display: none;">
+    <div class="option">
+      <input type="radio" id="option4a" name="q4" value="a">
+      <label for="option4a">a Slow and steady wins the race</label>
+      <hr>
+    </div>
+    <div class="option">
+      <input type="radio" id="option4b" name="q4" value="b">
+      <label for="option4b">b Being fast is more important than being steady</label>
+      <hr>
+    </div>
+    <div class="option">
+      <input type="radio" id="option4c" name="q4" value="c">
+      <label for="option4c">c Taking shortcuts leads to success</label>
+      <hr>
+    </div>
+    <div class="option">
+      <input type="radio" id="option4d" name="q4" value="d">
+      <label for="option4d">d Winning is everything, no matter the method</label>
+      <hr>
+    </div>
+  </div>
+
+  <div class="button-group" id="buttonGroup4" style="display: none;">
+    <button onclick="nextQuestion(4)"><button onclick="nextQuestion(4)">Next</button>
+</div>
+
+<div class="question" id="question5" style="display: none;">
+  <p>5. In the story, who was determined and focused on the goal?</p>
+</div>
+
+<div class="options" id="options5" style="display: none;">
+  <div class="option">
+    <input type="radio" id="option5a" name="q5" value="a">
+    <label for="option5a">a Tortoise</label>
+    <hr>
+  </div>
+  <div class="option">
+    <input type="radio" id="option5b" name="q5" value="b">
+    <label for="option5b">b Rabbit</label>
+    <hr>
+  </div>
+  <div class="option">
+    <input type="radio" id="option5c" name="q5" value="c">
+    <label for="option5c">c Lion</label>
+    <hr>
+  </div>
+  <div class="option">
+    <input type="radio" id="option5d" name="q5" value="d">
+    <label for="option5d">d Monkey</label>
+    <hr>
+  </div>
+</div>
+
+<div class="button-group" id="buttonGroup5" style="display: none;">
+  <button onclick="submitForm()">Submit</button>
+  <hr>
+</div>
+
+<div id="scoreSection" style="display: none;">
+  <p class="score" id="score"></p>
+  <div class="answers" id="answers"></div>
+</div>
+
+</div>
+
+<script>
+var currentQuestion = 1;
+var questionCount = 5;
+var userAnswers = {};
+
+function nextQuestion(questionNumber) {
+  userAnswers["q" + currentQuestion] = document.querySelector('input[name="q' + currentQuestion + '"]:checked').value;
+
+  var currentQuestionElement = document.getElementById("question" + currentQuestion);
+  var currentOptionsElement = document.getElementById("options" + currentQuestion);
+  var currentButtonGroup = document.getElementById("buttonGroup" + currentQuestion);
+
+  currentQuestionElement.style.display = "none";
+  currentOptionsElement.style.display = "none";
+  currentButtonGroup.style.display = "none";
+
+  currentQuestion++;
+
+  var nextQuestionElement = document.getElementById("question" + currentQuestion);
+  var nextOptionsElement = document.getElementById("options" + currentQuestion);
+  var nextButtonGroup = document.getElementById("buttonGroup" + currentQuestion);
+
+  nextQuestionElement.style.display = "block";
+  nextOptionsElement.style.display = "block";
+  nextButtonGroup.style.display = "block";
+}
+
+function submitForm() {
+  userAnswers["q" + currentQuestion] = document.querySelector('input[name="q' + currentQuestion + '"]:checked').value;
+
+  var score = calculateScore();
+  var scoreElement = document.getElementById("score");
+  scoreElement.textContent = "Your score: " + score + "/" + questionCount;
+
+  var answersElement = document.getElementById("answers");
+  answersElement.innerHTML = "";
+
+  for (var i = 1; i <= questionCount; i++) {
+    var answer = document.createElement("p");
+    answer.textContent = "Q" + i + ": Correct answer - " + getCorrectAnswer(i) + ", Your answer - " + getUserAnswer(i);
+    answersElement.appendChild(answer);
+  }
+
+  var scoreSection = document.getElementById("scoreSection");
+  scoreSection.style.display = "block";
+}
+
+function calculateScore() {
+    var score = 0;
+    for (var i = 1; i <= questionCount; i++) {
+      if (getUserAnswer(i) === getCorrectAnswer(i)) {
+        score++;
+      }
+    }
+    return score;
+  }
+
+  function getUserAnswer(questionNumber) {
+    return userAnswers["q" + questionNumber];
+  }
+
+  function getCorrectAnswer(questionNumber) {
+    var correctAnswers = {
+      q1: "b",
+      q2: "c",
+      q3: "a",
+      q4: "a",
+      q5: "a"
+    };
+    return correctAnswers["q" + questionNumber];
+  }
+</script>
+</body>
+</html>
+
+

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Guess the Number</title>
+  <style>
+    body {
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    p {
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    input[type="number"] {
+      padding: 5px 10px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 8px 16px;
+      background-color: #4CAF50;
+      color: #fff;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #resultMessage {
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Guess the Number</h1>
+    <p>Guess a number between 1 and 100:</p>
+    <input type="number" id="guessInput" min="1" max="100">
+    <br>
+    <br>
+    <button onclick="checkGuess()">Submit</button>
+    <p id="resultMessage"></p>
+  </div>
+
+  <script>
+    // Generate a random number between 1 and 100
+    const randomNumber = Math.floor(Math.random() * 100) + 1;
+    let guessCount = 0;
+
+    function checkGuess() {
+      const guessInput = document.getElementById('guessInput');
+      const resultMessage = document.getElementById('resultMessage');
+      const userGuess = parseInt(guessInput.value);
+
+      guessCount++;
+
+      if (userGuess === randomNumber) {
+        resultMessage.textContent = `Congratulations! You guessed the correct number in ${guessCount} attempts.`;
+        guessInput.disabled = true;
+      } else if (userGuess < randomNumber) {
+        resultMessage.textContent = 'Too low. Guess again!';
+      } else {
+        resultMessage.textContent = 'Too high. Guess again!';
+      }
+
+      guessInput.value = '';
+    }
+  </script>
+</body>
+</html>

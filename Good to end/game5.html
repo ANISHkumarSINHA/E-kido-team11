@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Toy Math Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    #problem {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    #resultMessage {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    #score {
+      margin-top: 20px;
+      font-size: 16px;
+    }
+
+    input[type="number"] {
+      padding: 5px 10px;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Toy Math Game</h1>
+  <div id="problem"></div>
+  <input type="number" id="answerInput">
+  <button onclick="checkAnswer()">Submit</button>
+  <p id="resultMessage"></p>
+  <p id="score"></p>
+
+  <script>
+    const toys = ['Teddy Bear', 'Doll', 'Car', 'Robot', 'Ball'];
+    let score = 0;
+
+    function generateProblem() {
+      const toy = toys[Math.floor(Math.random() * toys.length)];
+      const startingCount = Math.floor(Math.random() * 5) + 1;
+      const givenCount = Math.floor(Math.random() * startingCount) + 1;
+
+      const problemElement = document.getElementById('problem');
+      problemElement.textContent = `If you have ${startingCount} ${toy}(s) and you give ${givenCount} ${toy}(s) to your friend, how many ${toy}(s) will you have left?`;
+
+      const answerInput = document.getElementById('answerInput');
+      answerInput.value = '';
+      answerInput.focus();
+    }
+
+    function checkAnswer() {
+      const answerInput = document.getElementById('answerInput');
+      const userAnswer = parseInt(answerInput.value);
+      const problemElement = document.getElementById('problem');
+      const resultMessage = document.getElementById('resultMessage');
+      const scoreElement = document.getElementById('score');
+
+      const nums = problemElement.textContent.match(/\d+/g);
+      const startingCount = parseInt(nums[0]);
+      const givenCount = parseInt(nums[1]);
+      const correctAnswer = startingCount - givenCount;
+
+      if (userAnswer === correctAnswer) {
+        resultMessage.textContent = 'Correct!';
+        score++;
+      } else {
+        resultMessage.textContent = 'Wrong!';
+        score = 0;
+      }
+
+      scoreElement.textContent = `Score: ${score}`;
+      generateProblem();
+    }
+
+    // Generate the first problem
+    generateProblem();
+  </script>
+</body>
+</html>

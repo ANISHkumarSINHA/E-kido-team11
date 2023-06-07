@@ -1,0 +1,167 @@
+<style>
+  .question-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .question-form h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .question-form p {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+  }
+
+  .question-form hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .question-form .answer-block {
+    padding: 10px;
+  }
+
+  .question-form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .question-form input[type='radio'] {
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+
+  .question-form button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 3px;
+    background-color: lightblue;
+    font-weight: 700;
+  }
+</style>
+
+<div class="question-form">
+  <h3>Question 1</h3>
+  <p>What is the capital of France?</p>
+  <hr />
+
+  <div class="answer-block">
+    <label for="q1-option-1">
+      <input type="radio" name="q1-option" value="Paris" id="q1-option-1" />
+      Paris
+    </label>
+  </div>
+
+  <div class="answer-block">
+    <label for="q1-option-2">
+      <input type="radio" name="q1-option" value="London" id="q1-option-2" />
+      London
+    </label>
+  </div>
+
+  <div class="answer-block">
+    <label for="q1-option-3">
+      <input type="radio" name="q1-option" value="Rome" id="q1-option-3" />
+      Rome
+    </label>
+  </div>
+
+  <div class="answer-block">
+    <label for="q1-option-4">
+      <input type="radio" name="q1-option" value="Berlin" id="q1-option-4" />
+      Berlin
+    </label>
+  </div>
+
+  <hr />
+
+  <h3>Question 2</h3>
+  <p>What is the largest planet in our solar system?</p>
+  <hr />
+
+  <div class="answer-block">
+    <label for="q2-option-1">
+      <input type="radio" name="q2-option" value="Jupiter" id="q2-option-1" />
+      Jupiter
+    </label>
+  </div>
+
+  <div class="answer-block">
+    <label for="q2-option-2">
+      <input type="radio" name="q2-option" value="Earth" id="q2-option-2" />
+      Earth
+    </label>
+  </div>
+
+  <div class="answer-block">
+    <label for="q2-option-3">
+      <input type="radio" name="q2-option" value="Mars" id="q2-option-3" />
+      Mars
+    </label>
+  </div>
+
+  <div class="answer-block">
+    <label for="q2-option-4">
+      <input type="radio" name="q2
+      -option" value="Saturn" id="q2-option-4" />
+      Saturn
+    </label>
+  </div>
+
+  <!-- Question 3 -->
+  <!-- Add your code for question 3 here -->
+
+  <!-- Question 4 -->
+  <!-- Add your code for question 4 here -->
+
+  <!-- Question 5 -->
+  <!-- Add your code for question 5 here -->
+
+  <button type="button" onclick="submitForm()">Submit</button>
+</div>
+
+<script>
+  function submitForm() {
+    // Retrieve user's answers for each question
+    const q1Answer = document.querySelector('input[name="q1-option"]:checked');
+    const q2Answer = document.querySelector('input[name="q2-option"]:checked');
+    // Retrieve answers for other questions in a similar manner
+  
+    // Check if all questions are answered
+    if (q1Answer && q2Answer) {
+      // Process the answers or perform other actions here
+      // You can access the selected value using q1Answer.value, q2Answer.value, etc.
+  
+      // Check answers and display correct answers
+      if (q1Answer.value === "Paris") {
+        document.getElementById("q1-option-1").parentNode.style.fontWeight = "bold";
+        document.getElementById("q1-option-1").parentNode.style.color = "green";
+      } else {
+        document.getElementById("q1-option-1").parentNode.style.fontWeight = "normal";
+        document.getElementById("q1-option-1").parentNode.style.color = "black";
+      }
+  
+      if (q2Answer.value === "Jupiter") {
+        document.getElementById("q2-option-1").parentNode.style.fontWeight = "bold";
+        document.getElementById("q2-option-1").parentNode.style.color = "green";
+      } else {
+        document.getElementById("q2-option-1").parentNode.style.fontWeight = "normal";
+        document.getElementById("q2-option-1").parentNode.style.color = "black";
+      }
+  
+      // Display correct answers for other questions in a similar manner
+  
+      console.log("Form submitted successfully!");
+    } else {
+      // Display an error message or handle incomplete form submission
+      console.log("Please answer all questions!");
+    }
+  }
+  
+</script>

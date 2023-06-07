@@ -1,0 +1,47 @@
+h1 {
+    text-align: center;
+  }
+  
+  .frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  p {
+    text-align: center;
+    font-weight: bold;
+  }
+  .options {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form {
+    display: flex;
+    justify-content: center;
+  }
+  
+  #submit-button {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  #score {
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 20px;
+  }
+  
+  #answers {
+    text-align: center;
+    margin-top: 10px;
+  }

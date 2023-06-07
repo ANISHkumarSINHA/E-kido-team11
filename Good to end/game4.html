@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock, Paper, Scissors</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    #resultMessage {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .choice-btn {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    .choice-btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Rock, Paper, Scissors</h1>
+  <p>Make your choice:</p>
+  <button class="choice-btn" onclick="makeChoice('rock')">Rock</button>
+  <button class="choice-btn" onclick="makeChoice('paper')">Paper</button>
+  <button class="choice-btn" onclick="makeChoice('scissors')">Scissors</button>
+  <p id="resultMessage"></p>
+
+  <script>
+    const choices = ['rock', 'paper', 'scissors'];
+
+    function makeChoice(playerChoice) {
+      const computerChoice = getComputerChoice();
+      const resultMessage = document.getElementById('resultMessage');
+      const playerWins = checkWin(playerChoice, computerChoice);
+
+      resultMessage.textContent = `You chose ${playerChoice}. The computer chose ${computerChoice}. `;
+
+      if (playerWins === true) {
+        resultMessage.textContent += 'You win!';
+      } else if (playerWins === false) {
+        resultMessage.textContent += 'You lose!';
+      } else {
+        resultMessage.textContent += "It's a tie!";
+      }
+    }
+
+    function getComputerChoice() {
+      const randomIndex = Math.floor(Math.random() * choices.length);
+      return choices[randomIndex];
+    }
+
+    function checkWin(playerChoice, computerChoice) {
+      if (playerChoice === computerChoice) {
+        return null;
+      } else if (
+        (playerChoice === 'rock' && computerChoice === 'scissors') ||
+        (playerChoice === 'paper' && computerChoice === 'rock') ||
+        (playerChoice === 'scissors' && computerChoice === 'paper')
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  </script>
+</body>
+</html>

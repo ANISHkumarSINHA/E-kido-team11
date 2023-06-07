@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hangman Game</title>
+    <style>
+        .container {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #wordDisplay {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #guessInput {
+            padding: 5px 10px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: #fff;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #guessesLeft {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Hangman Game</h1>
+        <div id="wordDisplay"></div>
+        <p>Guess a letter:</p>
+        <input type="text" id="guessInput" maxlength="1">
+        <br>
+        <br>
+        <button onclick="checkLetter()">Submit</button>
+        <p id="guessesLeft"></p>
+    </div>
+
+    <script>
+        // Array of words to guess
+        const words = ['hangman', 'javascript', 'programming', 'computer', 'developer'];
+        // Randomly select a word from the array
+        const selectedWord = words[Math.floor(Math.random() * words.length)];
+        let guessesLeft = 6;
+        let hiddenWord = '';
+        let guessedLetters = [];
+
+        function initializeGame() {
+            // Set up the hidden word with underscores
+            for (let i = 0; i < selectedWord.length; i++) {
+                hiddenWord += '_';
+            }
+
+            updateWordDisplay();
+            updateGuessesLeft();
+        }
+
+        function updateWordDisplay() {
+            const wordDisplay = document.getElementById('wordDisplay');
+            wordDisplay.textContent = hiddenWord.split('').join(' ');
+        }
+
+        function updateGuessesLeft() {
+            const guessesLeftElement = document.getElementById('guessesLeft');
+            guessesLeftElement.textContent = `Guesses Left: ${guessesLeft}`;
+        }
+
+        function checkLetter() {
+            const guessInput = document.getElementById('guessInput');
+            const letter = guessInput.value.toLowerCase();
+
+            if (!letter.match(/[a-z]/i)) {
+                alert('Please enter a valid letter.');
+                return;
+            }
+
+            if (guessedLetters.includes(letter)) {
+                alert('You already guessed that letter.');
+                return;
+            }
+
+            guessedLetters.push(letter);
+
+            if (selectedWord.includes(letter)) {
+                for (let i = 0; i < selectedWord.length; i++) {
+                    if (selectedWord[i] === letter) {
+                        hiddenWord = hiddenWord.substring(0, i) + letter + hiddenWord.substring(i + 1);
+                    }
+                }
+
+                updateWordDisplay();
+
+                if (!hiddenWord.includes('_')) {
+                    endGame(true);
+                }
+            } else {
+                guessesLeft--;
+                updateGuessesLeft();
+
+                if (guessesLeft === 0) {
+                    endGame(false);
+                }
+            }
+
+            guessInput.value = '';
+        }
+
+        function endGame(won) {
+            const wordDisplay = document.getElementById('wordDisplay');
+            const guessesLeftElement = document.getElementById('guessesLeft');
+
+            // Disable input and button
+            const guessInput = document.getElementById('guessInput');
+            guessInput.disabled = true;
+            const submitButton = document.querySelector('button');
+            submitButton.disabled = true;
+
+            // Display the final result
+            if (won) {
+                wordDisplay.textContent = `Congratulations! You guessed the word: ${hiddenWord}`;
+            } else {
+                wordDisplay.textContent = `Game over! The word was: ${selectedWord}`;
+            }
+        }
+
+        // Initialize the game
+        initializeGame();
+    </script>
+</body>
+
+</html>

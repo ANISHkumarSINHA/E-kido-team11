@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f1f1f1;
+        }
+
+        .form-container {
+            width: 400px;
+            padding: 20px;
+            border-radius: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h1 {
+            text-align: center;
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-container label {
+            font-weight: bold;
+        }
+
+        .form-container input[type="text"],
+        .form-container select {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-container input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .form-container input[type="submit"]:last-child {
+            margin-top: 10px;
+            background-color: #ff5722;
+        }
+
+        .form-container input[type="submit"]:last-child:hover {
+            background-color: #f44336;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h1>TEST</h1>
+        <form action="http://127.0.0.1:5501/z.html">
+            <label for="Name"> <b>NAME:</b> </label>
+            <input type="text" id="name" placeholder="naam kya h?">
+            <br>
+            <br>
+            <label for="Age"> <b>Age:</b> </label>
+            <select name="Age" id="Age">
+                <option value="default">select the option</option>
+                <option value="no">5-7</option>
+                <option value="yes">7-10</option>
+                <option value="uff">10-13</option>
+                <option value="bhagg">13+</option>
+            </select>
+            <br>
+            <br>
+            <label for="gender"><b>Gender:</b></label>
+            <select name="gender" id="gender">
+                <option value="default">select the option</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <br>
+            </select>
+            <br>
+            <br>
+            <label for="ask"> <b>Which Story you understand?</b> </label>
+            <select name="ask" id="ask">
+                <option value="default">select the option</option>
+                <option value="no">The jungle Book</option>
+                <option value="no">The monkey and the crocodile</option>
+                <option value="no">The Stork and the Crab</option>
+                <option value="no">The Loyal Mongoose</option>
+                <option value="no">Union is strength</option>
+                <option value="no">Tortoise and the Hare</option>
+                <option value="yes">The three little pigs</option>
+                <option value="uff">The Ant and the Grasshopper</option>
+                <option value="bhagg">The foolish thief</option>
+            </select>
+            <br>
+            <br>
+
+            <input type="submit" value="Start">
+            <input type="submit" value="RE-read">
+        </form>
+    </div>
+</body>
+
+</html>

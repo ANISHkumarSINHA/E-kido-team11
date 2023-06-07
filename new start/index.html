@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    .form-container {
+      width: 500px;
+      background-color: #fff;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    #question-card {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    #options {
+      margin-top: 20px;
+    }
+
+    #next-btn {
+      margin-top: 20px;
+    }
+
+    #question-card.current {
+      transform: translateX(-100%);
+    }
+
+    #question-card.previous {
+      transform: translateX(100%);
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <div id="question-card">
+      <h2 id="question">Question 1</h2>
+      <div id="options">
+        <input type="radio" name="option" id="option1">
+        <label for="option1">Option A</label>
+        <br>
+        <input type="radio" name="option" id="option2">
+        <label for="option2">Option B</label>
+        <br>
+        <input type="radio" name="option" id="option3">
+        <label for="option3">Option C</label>
+        <br>
+        <input type="radio" name="option" id="option4">
+        <label for="option4">Option D</label>
+      </div>
+      <button id="next-btn">Next</button>
+    </div>
+  </div>
+
+  <script>
+    const questionCard = document.getElementById('question-card');
+    const nextButton = document.getElementById('next-btn');
+    const question = document.getElementById('question');
+    const option1 = document.getElementById('option1');
+    const option2 = document.getElementById('option2');
+    const option3 = document.getElementById('option3');
+    const option4 = document.getElementById('option4');
+    let currentQuestion = 1;
+
+    nextButton.addEventListener('click', () => {
+      questionCard.classList.add('previous');
+      setTimeout(() => {
+        questionCard.classList.remove('previous');
+        questionCard.classList.add('current');
+        updateQuestion();
+        resetCardPosition();
+      }, 500);
+    });
+
+    function updateQuestion() {
+      currentQuestion++;
+      if (currentQuestion <= 5) {
+        question.textContent = `Question ${currentQuestion}`;
+        option1.checked = false;
+        option2.checked = false;
+        option3.checked = false;
+        option4.checked = false;
+      } else {
+        // All questions answered, show completion message or redirect
+        alert('Thank you for completing the form!');
+      }
+    }
+
+    function resetCardPosition() {
+      questionCard.style.transform = 'translateX(0)';
+    }
+  </script>
+</body>
+</html>
